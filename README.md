@@ -1,21 +1,22 @@
+# InvestEasy
+Esse projeto é um aplicativo android nativo desenvolvido com a linguagem kotlin, tem como principal funcionalidade calcular o valor de rendimentos em um investimento dado percentual de juros mensal e mostrar os resultados na tela.
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+## Tecnologias
+- Activity
+- Intent
+- SnackBar
+- View Groups
+  - LinearLayout
+  - ConstranitLayout
+- Views 
+  - ImageView
+  - TextView
+  - EditText
+  - Button
 
 
 ## License
