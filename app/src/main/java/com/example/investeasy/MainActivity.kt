@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
+import java.text.DecimalFormat
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
@@ -31,10 +32,11 @@ class MainActivity : AppCompatActivity() {
         val btnclean = findViewById<Button>(R.id.btn_clean)
 
         btnclean.setOnClickListener {
-        edtcontribution.text?.clear()
-        edtnumbers.text?.clear()
-        edtinterest.text?.clear()
-         }
+            edtcontribution.text?.clear()
+            edtnumbers.text?.clear()
+            edtinterest.text?.clear()
+
+        }
 
         btncalcule.setOnClickListener {
 
@@ -53,16 +55,14 @@ class MainActivity : AppCompatActivity() {
 
 
                 val percent = (interest / 100f)
-                val totalAmount = contribution * ((1 + percent).pow(numbers) - 1) / percent
+                val totalAmount =
+                    contribution * ((1 + percent).pow(numbers) - 1) / percent * (1 + percent)
                 val earning = totalAmount - (contribution * numbers)
 
+                val decimalFormat = DecimalFormat("#,###.00")
 
-                tvtotal.text = "€ %.2f".format(totalAmount)
-                tvincome.text = "€ %.2f".format(earning)
-
-
-                println(totalAmount)
-                println(earning)
+                tvtotal.text = "$${decimalFormat.format(totalAmount)}"
+                tvincome.text = "$${decimalFormat.format(earning)}"
 
 
             }
